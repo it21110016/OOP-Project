@@ -1,0 +1,167 @@
+function ValidateEmail(inputText)
+{
+var format = /^w+([.-]?w+)*@.w+([.-]?w+)*(.w{2,3})+$/;
+if(inputText.value.match(format))
+{
+  
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
+document.form1.email.focus();
+return false;
+}
+}   
+
+
+//form  submit validate   
+
+
+   function notNull() 
+   {
+     if (input.value.length == 0)
+      { 
+         toastr.warning('Please Fill out this Fields');  	
+         return false; 
+      } 
+      else
+    {
+     	
+      return true; 
+    } 
+   
+        
+    }
+
+//test
+ // jQuery to validate form
+
+
+$(document).ready(function() {
+$("#form1").validate({
+rules: {
+name : {
+required: true,
+
+},
+
+email: {
+required: true,
+email: true
+},
+phone: {
+required: true
+number: true,
+},
+event: {
+required: true
+option: true,
+},
+date: {
+required: true
+date: true,
+},
+time: {
+required: true
+
+},
+description: {
+required: true
+maxLength = 100
+},
+venue: {
+required: true
+
+},
+address: {
+required: true
+maxLength = 50;
+},
+capacity: {
+required: true
+number : true;
+},
+attendance: {
+required: true
+number : true;
+},
+facilities: {
+required: true
+maxLength = 100;
+},
+pay: {
+required: true
+
+},
+budget: {
+required: true
+
+},
+tickets: {
+required: true
+
+},
+    },
+    messages:{
+      name: "Please enter Your First Name",
+      email: "Please enter a valid email address",
+      phone: "Please enter phone Number",
+      event:{
+        required: "Please select preferred event",
+       
+      },
+      date:{
+        required: "Please select the date from the Calender",
+      },
+       time:{
+        required: "Please enter the time in the given format",
+      },
+       description:{
+        required: "Please enter your preferences",
+         maxlength: "Your cannot exceed 100 words",
+      },
+       venue:{
+        required: "Please enter the venue",
+      },
+       address:{
+        required: "Please enter the address of the venue",
+      },
+       capacity:{
+        required: "Please enter the no of halls needed",
+      },
+       attendance:{
+        required: "Please enter the no of attendees",
+         
+      },
+       facilities:{
+        required: "Please tick the needed facilities",
+   
+      },
+       pay:{
+        required: "Please select the payment method",
+
+      },
+       budget:{
+        required: "Please enter the budget limit",
+
+      },
+
+      
+    },
+    errorElement: "em",
+  
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid').addClass('has-success has-feedback');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+               
+            }
+  });
+  });
+    
